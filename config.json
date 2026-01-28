@@ -1,0 +1,8 @@
+{
+  "server": "0.0.0.0:5667",
+  "auth": {
+    "method": "config",
+    "config": []
+  },
+  "log_level": "info"
+}
