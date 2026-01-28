@@ -145,7 +145,7 @@ if [ -s /tmp/zivpn-bin-download ] && ! grep -q "<html" /tmp/zivpn-bin-download; 
   rm -f /tmp/zivpn-bin-download
 fi
 sudo mkdir -p /etc/zivpn
-sudo wget https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/config.json -O /etc/zivpn/config.json
+sudo wget https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/config.json -O /etc/zivpn/config.json
 
 echo "Generating cert files:"
 sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=California/L=Los Angeles/O=Example Corp/OU=IT Department/CN=zivpn" -keyout "/etc/zivpn/zivpn.key" -out "/etc/zivpn/zivpn.crt"
@@ -193,20 +193,20 @@ sudo systemctl start zivpn.service
 sudo ufw allow 6000:19999/udp > /dev/null
 sudo ufw allow 5667/udp > /dev/null
 
-sudo wget -O /usr/local/bin/zivpn https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/zivpn-menu.sh
+sudo wget -O /usr/local/bin/zivpn https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/zivpn-menu.sh
 sudo chmod +x /usr/local/bin/zivpn
 
 # Unduh skrip uninstall dan letakkan di path yang dapat diakses
-sudo wget -O /usr/local/bin/uninstall.sh https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/uninstall.sh
+sudo wget -O /usr/local/bin/uninstall.sh https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/uninstall.sh
 sudo chmod +x /usr/local/bin/uninstall.sh
 
 # Pasang skrip pembersihan otomatis dan jadwalkan
-sudo wget -O /usr/local/bin/zivpn-cleanup.sh https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/zivpn-cleanup.sh
+sudo wget -O /usr/local/bin/zivpn-cleanup.sh https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/zivpn-cleanup.sh
 sudo chmod +x /usr/local/bin/zivpn-cleanup.sh
-sudo wget -O /usr/local/bin/zivpn-autobackup.sh https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/zivpn-autobackup.sh
+sudo wget -O /usr/local/bin/zivpn-autobackup.sh https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/zivpn-autobackup.sh
 sudo chmod +x /usr/local/bin/zivpn-autobackup.sh
 # Pasang skrip pemantauan server
-sudo wget -O /usr/local/bin/zivpn-monitor.sh https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/zivpn-monitor.sh
+sudo wget -O /usr/local/bin/zivpn-monitor.sh https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/zivpn-monitor.sh
 sudo chmod +x /usr/local/bin/zivpn-monitor.sh
 
 # Jalankan setiap menit untuk penghapusan yang mendekati real-time
@@ -215,7 +215,7 @@ sudo bash -c 'echo "* * * * * root /usr/local/bin/zivpn-cleanup.sh" > /etc/cron.
 sudo bash -c 'echo "*/5 * * * * root /usr/local/bin/zivpn-monitor.sh" > /etc/cron.d/zivpn-monitor'
 
 # Pasang skrip MOTD (Message of the Day)
-sudo wget -O /etc/profile.d/zivpn-motd.sh https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/zivpn-motd.sh
+sudo wget -O /etc/profile.d/zivpn-motd.sh https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/zivpn-motd.sh
 sudo chmod +x /etc/profile.d/zivpn-motd.sh
 
 # --- Install ZIVPN Telegram Bot ---
@@ -243,13 +243,13 @@ fi
 
 # Download Bot Script
 echo "Downloading bot script..."
-sudo wget -O /usr/local/bin/zivpn_bot.py https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/zivpn_bot.py
+sudo wget -O /usr/local/bin/zivpn_bot.py https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/zivpn_bot.py
 sudo chmod +x /usr/local/bin/zivpn_bot.py
 
 # --- BAGIAN DOWNLOAD QRIS
 echo "Downloading QRIS image..."
 # Download QRIS image dari github ke folder /etc/zivpn/
-sudo wget -O /etc/zivpn/qris.jpg https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main/qris.jpg
+sudo wget -O /etc/zivpn/qris.jpg https://raw.githubusercontent.com/nurodinahmad34/vpnku/main/qris.jpg
 
 # Create systemd service for Bot
 echo "Creating bot service..."
