@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zivpn Installer</title>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  background-color: #2b2b2b;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+h1 {
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+h2 {
+  color: #03A9F4;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+.command-box {
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-break: break-all;
+}
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  text-align: left;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+button:hover {
+  background-color: #45a049;
+}
+.copied-message {
+  visibility: hidden;
+  background-color: #03A9F4;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  font-size: 0.8em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Zivpn AutoScript Installer</h1>
+
+<h2>AMD64 / x86_64 Architecture</h2>
+<div class="command-box">
+<code id="cmd1">wget -O zi.sh https://zivpn.nizwara.biz.id/zi.sh && chmod +x zi.sh && ./zi.sh</code>
+<button onclick="copyToClipboard('cmd1', 'msg1')">Copy</button>
+<div id="msg1" class="copied-message">Copied!</div>
+</div>
+
+<h2>ARM64 Architecture</h2>
+<div class="command-box">
+<code id="cmd2">wget -O zi2.sh https://zivpn.nizwara.biz.id/zi2.sh && chmod +x zi2.sh && ./zi2.sh</code>
+<button onclick="copyToClipboard('cmd2', 'msg2')">Copy</button>
+<div id="msg2" class="copied-message">Copied!</div>
+</div>
+</div>
+
+<script>
+function copyToClipboard(elementId, messageId) {
+  const command = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(command).then(() => {
+    const message = document.getElementById(messageId);
+    message.style.visibility = 'visible';
+    message.style.opacity = '1';
+    setTimeout(() => {
+      message.style.opacity = '0';
+      message.style.visibility = 'hidden';
+    }, 1500);
+  }).catch(err => {
+    console.error('Failed to copy text: ', err);
+  });
+}
+</script>
+
+</body>
+</html>
