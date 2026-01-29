@@ -133,7 +133,7 @@ sudo systemctl stop zivpn.service > /dev/null 2>&1
 
 echo -e "Downloading UDP Service"
 # Download to temp file first to verify
-sudo wget -q https://github.com/Nizwarax/vip-zivpn/releases/download/udp-zivpn_1.4.9/udp-zivpn-linux-arm64 -O /tmp/zivpn-bin-download
+sudo wget -q https://github.com/nurodinahmad34/vpnku/releases/download/udp-zivpn_1.4.9/udp-zivpn-linux-arm64 -O /tmp/zivpn-bin-download
 
 # Check if download succeeded and is not a 404 HTML page
 if [ -s /tmp/zivpn-bin-download ] && ! grep -q "<html" /tmp/zivpn-bin-download; then

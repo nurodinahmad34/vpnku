@@ -956,9 +956,9 @@ load_theme() {
             echo -e "\n${WHITE}Updating... Please wait.${NC}"
             
             # --- Configuration ---
-            REPO_URL="https://raw.githubusercontent.com/Nizwarax/vip-zivpn/main"
+            REPO_URL="https://raw.githubusercontent.com/nurodinahmad34/vpnku/main"
             # Assuming the release version might get updated, but for now, this is the latest known one.
-            RELEASE_URL="https://github.com/Nizwarax/vip-zivpn/releases/download/udp-zivpn_1.4.9"
+            RELEASE_URL="https://github.com/nurodinahmad34/vpnku/releases/download/udp-zivpn_1.4.9"
             
             # --- Detect Architecture ---
             ARCH=$(uname -m)
