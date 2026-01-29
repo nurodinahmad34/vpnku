@@ -1,6 +1,5 @@
 #!/bin/bash
-# Zivpn UDP Module installer - Fixed
-# Creator Deki_niswara
+# Zivpn UDP Module 
 
 # --- Colors ---
 GREEN='\033[1;32m'
