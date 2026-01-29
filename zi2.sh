@@ -1,6 +1,5 @@
 #!/bin/bash
-# Zivpn UDP Module installer - Fixed
-# Creator Deki_niswara
+# UDP Zivpn  Module 
 
 # --- Colors ---
 GREEN='\033[1;32m'
@@ -20,7 +19,7 @@ if [ -z "$SERVER_IP" ]; then
   exit 1
 fi
 
-# Unduh daftar IP yang diizinkan
+# Unduh daftar IP yang diizinkan trenadmvpn
 IZIN_IPS=$(curl -s "$IZIN_URL")
 
 # [BARU] Cek apakah gagal download (misal server down/internet mati)
