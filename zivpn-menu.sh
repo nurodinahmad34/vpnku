@@ -2,7 +2,7 @@
 
 # --- Konfigurasi Dasar & URL ---
 # Arahkan ke folder repo izin_ips
-BASE_URL="https://raw.githubusercontent.com/nurodinahmad34/izin_ips/main/izin_ips.txt"
+BASE_URL="https://raw.githubusercontent.com/nurodinahmad34/izin_ips/main"
 USER_DB="/etc/zivpn/users.db.json"
 CONFIG_FILE="/etc/zivpn/config.json"
 LICENSE_FILE="/etc/zivpn/license.conf"
