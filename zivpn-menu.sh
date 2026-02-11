@@ -342,25 +342,26 @@ load_theme() {
     echo -e "\n${GREEN}Pengaturan bot berhasil disimpan!${NC}"
     
     # 4. Update Service Systemd
-    BOT_SERVICE_FILE="/etc/systemd/system/zivpn-bot.service"
-    
-    echo -e "${YELLOW}Mengupdate Service Bot...${NC}"
-    cat <<EOF > "$BOT_SERVICE_FILE"
-    [Unit]
-    Description=ZIVPN Telegram Bot
-    After=network.target
-    
-    [Service]
-    ExecStart=/usr/bin/python3 /usr/local/bin/zivpn_bot.py
-    Restart=always
-    RestartSec=10
-    User=root
-    WorkingDirectory=/etc/zivpn
-    Environment=PYTHONUNBUFFERED=1
-    
-    [Install]
-    WantedBy=multi-user.target
-    EOF
+BOT_SERVICE_FILE="/etc/systemd/system/zivpn-bot.service"
+
+cat <<EOF > "$BOT_SERVICE_FILE"
+[Unit]
+Description=ZIVPN Telegram Bot
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/zivpn_bot.py
+Restart=always
+RestartSec=10
+User=root
+WorkingDirectory=/etc/zivpn
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+
     
     systemctl daemon-reload
     systemctl enable zivpn-bot.service
@@ -1018,22 +1019,24 @@ load_theme() {
               if [ ! -f /etc/systemd/system/zivpn-bot.service ]; then
                 echo "Creating missing bot service..."
                 PYTHON_EXEC="/usr/bin/python3"
-                sudo tee /etc/systemd/system/zivpn-bot.service > /dev/null <<EOF
-                [Unit]
-                Description=ZIVPN Telegram Bot
-                After=network.target
-                
-                [Service]
-                ExecStart=$PYTHON_EXEC /usr/local/bin/zivpn_bot.py
-                Restart=always
-                RestartSec=10
-                User=root
-                WorkingDirectory=/etc/zivpn
-                Environment=PYTHONUNBUFFERED=1
-                
-                [Install]
-                WantedBy=multi-user.target
-                EOF
+sudo tee /etc/systemd/system/zivpn-bot.service > /dev/null <<'EOF'
+[Unit]
+Description=ZIVPN Telegram Bot
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/zivpn_bot.py
+Restart=always
+RestartSec=10
+User=root
+WorkingDirectory=/etc/zivpn
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+
                 sudo systemctl daemon-reload
                 sudo systemctl enable zivpn-bot.service
               fi
